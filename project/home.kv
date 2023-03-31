@@ -8,44 +8,18 @@
             right_action_items: [["dots-vertical", lambda x: None],["logout", lambda x: None]]
             elevation: 0
             md_bg_color:(0/255, 139/255, 199/255)
-        # BoxLayout:
-        #     size_hint_y: None
-        #     height: '100dp'
-        #     padding: '12dp'
-        #     spacing: '12dp'
-        #     Label:
-        #         text: 'Home'
         BoxLayout:
             orientation: 'vertical'
             spacing: '12dp'
-            # Image:
-            #     pos_hint:{"center_x": .5}
-            #     source: 'assets/ckure.png'
-            #     keep_ratio: True
-            #     size_hint_y: None
-            #     height: dp(100)
             GridLayout:
                 cols: 1
                 padding: '12dp'
                 spacing: '5dp'
-                # CustomButton:
-                #     text:'My Profile'
-                # CustomButton:
-                #     text: 'Transaction History'
-                # CustomButton:
-                #     text:'Pending Transaction'
-                # CustomButton:
-                #     text: 'Report Records'
                 Camera:
                     id:camera
                     play:True
                     resolution:(780, 580)
                     index:0
-
-
-            # MDRectangleFlatButton:
-            #     text:'Damage Assessment'
-            #     size_hint_x: 1
             MDBottomAppBar:
                 md_bg_color:(0/255, 139/255, 199/255)
                 

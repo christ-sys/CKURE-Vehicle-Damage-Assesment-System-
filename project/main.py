@@ -13,8 +13,9 @@ import hashlib
 import time
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import ObjectProperty
+from kivymd.uix.dialog import MDDialog
+from kivymd.uix.button import MDFlatButton
 
-# from kivymd.uix.pickers import MDDatePicker
 Window.size = (350, 580)
 # .kv files
 Builder.load_file("login.kv")
@@ -32,7 +33,8 @@ class Login(Screen):
             user = firebaseauth.auth.sign_in_with_email_and_password(email, password)
             self.manager.current='home'
         except:
-            self.manager.current='result'
+            Ckure.show_alert_dialog(self)
+
 class SignUp(Screen):
     def reg_user(self):
         email = self.ids.email.text
@@ -65,6 +67,8 @@ class SignUp(Screen):
         except Exception as e:
             print(f"Error: {e}")
 
+
+
 class capture(Screen):
     def Camera(self):
         self.cam = self.ids['camera']
@@ -88,7 +92,6 @@ class Result(Screen):
 
 class Report(Screen):
     def report(self):
-        # screen_manager.transition.direction='right'
         screen_manager.current = "report"
 
     def back(self, button):
@@ -111,6 +114,7 @@ class Ckure(MDApp):
     myImage = Image()
     myImage.source = "assets/ckure.png"
     prev = []
+    dialog = None
 
     def build(self):
         global screen_manager
@@ -129,6 +133,17 @@ class Ckure(MDApp):
         Clock.schedule_once(self.login, 5)
     def login(self, *args):
         screen_manager.current = "login"
+
+    def show_alert_dialog(self):
+        self.dialog = MDDialog(
+                text = "Email or Password is incorrect",
+                buttons =[
+                    MDFlatButton(
+                        text= 'Ok'
+                    ),
+                ],
+        )
+        self.dialog.open()
     
     
 Ckure().run()
