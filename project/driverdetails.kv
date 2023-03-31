@@ -1,0 +1,50 @@
+<driverDetails>:
+    name: "driverdetails"
+    GridLayout:
+        cols: 1
+        MDTopAppBar:
+            title: "Confirmation"
+            left_action_items: [["arrow-left", lambda x : root.back(self.icon)]]
+            
+            elevation: 0
+            md_bg_color:(0/255, 139/255, 199/255)
+            # on_action_button_release: 
+        
+        GridLayout:
+            cols: 1
+            spacing: 5
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                ScrollView:
+                    padding: 10
+                    MDList:
+                        padding: 30
+                        MDTextField:
+                            hint_text: "Driver Name"
+                            helper_text_mode: "persistent"
+                            width: dp(10)
+                        MDTextField:
+                            hint_text: "Address"
+                            helper_text_mode: "persistent"
+                            width: dp(10)
+                        MDTextField:
+                            hint_text: "Gender"
+                            helper_text_mode: "persistent"
+                            width: dp(10)
+                        MDTextField:
+                            hint_text: "Plate Number"
+                            helper_text_mode: "persistent"
+                            width: dp(10)
+                        MDTextField:
+                            hint_text: "Contact Number"
+                            helper_text_mode: "persistent"
+                            width: dp(10)
+                        
+                        MDFillRoundFlatButton:
+                            text: "Submit"
+                            text_color: "white"
+                            halign: 'center'
+                            font_size: '20sp'
+                            size_hint_x: 0.9

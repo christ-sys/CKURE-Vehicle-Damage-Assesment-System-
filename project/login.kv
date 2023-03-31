@@ -1,0 +1,65 @@
+<Login>:
+    name: "login"
+    GridLayout:
+        cols: 1
+        BoxLayout:
+            size_hint_y: None
+            height: '55dp'
+            padding: '12dp'
+            spacing: '12dp'
+            
+            Image:
+                pos_hint:{"center_x": .5, "center_y": .005}
+                source: 'assets/ckure.png'
+                keep_ratio: True
+                size_hint_y: None
+                height: dp(80)
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing: '12dp'
+            GridLayout:
+                cols: 1
+                padding: '12dp'
+                spacing: '5dp'
+                MDLabel:
+                    text: "Proceed to\nLogin"
+                    font_size: "22sp"
+                    font_name: "fonts/Montserrat-Thin.ttf"
+                    font_name: "fonts/coolvetica.otf"
+            GridLayout:
+                cols: 1
+                padding: '12dp'
+                spacing: '5dp'
+                MDTextField:
+                    id: email
+                    hint_text: "Email"
+                    helper_text: "This field is required"
+                    helper_text_mode: "on_focus"
+                MDTextField:
+                    id: password
+                    hint_text: "Password"
+                    password: True
+                    helper_text: "This field is required"
+                    helper_text_mode: "on_focus"
+            GridLayout:
+                cols: 1
+                padding: '12dp'
+                spacing: '5dp'    
+                MDRaisedButton:
+                    text: "Log In"
+                    mode: "rectangle"
+                    elevation:0
+                    md_bg_color: 9/255,65/255,176/255
+                    size_hint_x: 0.9
+                    on_press: root.verify_user()
+     
+                MDRaisedButton:
+                    text: "New to CKURE"
+                    theme_text_color: "Custom"
+                    text_color: 9/255,65/255,176/255
+                    md_bg_color: "white"
+                    elevation: 0
+                    size_hint_x: 0.9
+                    on_release:
+                        app.root.current="signup"
+                        root.manager.transition.direction="left"

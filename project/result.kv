@@ -1,0 +1,74 @@
+
+<Result>:
+    name: "result"
+    GridLayout:
+        cols: 1
+        MDTopAppBar:
+            title: "Result"
+            left_action_items: [["arrow-left", lambda x : root.back(self.icon)]]
+            
+            elevation: 0
+            md_bg_color:(0/255, 139/255, 199/255)
+            # on_action_button_release: 
+        
+        GridLayout:
+            cols: 1
+            Image:
+                id: imgSrc
+                pos_hint:{"center_x": .5, "center_y": .005}
+                source: str(app.myImage.source)
+                keep_ratio: True
+                size_hint_y: None
+                height: dp(250)
+            
+            GridLayout:
+                cols:1
+                MDCard:
+                    TwoLineListItem:
+                        text: 'Category'
+                        secondary_text: 'Front'
+                        
+                    TwoLineListItem:
+                        text: 'Part'
+                        secondary_text: 'Bumper'
+                    TwoLineListItem:
+                        text: 'Severity'
+                        secondary_text: 'Severe'
+                GridLayout:
+                    cols:1
+                    spacing:1
+                    
+                    MDLabel:
+                        text: 'Estimated Cost'
+                        halign: 'center'
+                        font_style: 'H6'
+
+
+                    MDLabel:
+                        text: "Php 30,000.00"
+                        halign: 'center'
+                        pos_hint:{"center_x":.5,"center_y":.003}
+                        font_style: 'H4'
+                        color: [1,0,0]
+                
+                AnchorLayout:
+                    MDFillRoundFlatButton:
+                        text: "Generate a Report"
+                        text_color: "white"
+                        halign: 'center'
+                        font_size: '20sp'
+                        on_release:
+                            app.root.current="report"
+                            root.manager.transition.direction="left"
+
+
+
+
+
+
+
+
+            
+       
+                
+        
